@@ -15,7 +15,9 @@ cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
 # Install git and clone our repository
 sudo apt-get -y install git-core
-#here comes git repo
+
+# Clone repo
+git clone https://github.com/arjanvanschoonhoven/raspberry.git
 
 # Install dnsmasq and hostapd
 sudo apt-get -y install dnsmasq hostapd
