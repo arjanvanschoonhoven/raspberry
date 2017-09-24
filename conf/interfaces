@@ -10,9 +10,9 @@ source-directory /etc/network/interfaces.d
 auto lo
 iface lo inet loopback
 
-auto eth0
-allow-hotplug eth0
-iface eth0 inet dhcp
+auto enxb827eb8cc7fc
+allow-hotplug enxb827eb8cc7fc
+iface enxb827eb8cc7fc inet dhcp
 
 allow-hotplug wlan0
 iface wlan0 inet static
@@ -21,4 +21,3 @@ iface wlan0 inet static
     network 172.24.1.0
     broadcast 172.24.1.255
 #    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-
