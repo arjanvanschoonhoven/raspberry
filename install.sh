@@ -28,5 +28,5 @@ sudo cp /home/pi/raspberry/conf/dhcpcd.conf /etc/dhcpcd.conf
 # copy interfaces
 sudo cp /home/pi/raspberry/conf/interfaces /etc/network/interfaces
 
-#restart dhcpcd
-sudo service dhcpcd restart
+#restart
+sudo restart
