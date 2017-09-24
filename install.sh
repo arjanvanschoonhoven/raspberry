@@ -11,7 +11,7 @@ sudo apt-get update && sudo apt-get -y upgrade
 
 #change timezone
 echo "Change timezone" 
-cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
+sudo cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
 # Install git and clone our repository
 sudo apt-get -y install git-core
