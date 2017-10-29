@@ -28,5 +28,8 @@ sudo cp /home/pi/raspberry/conf/dhcpcd.conf /etc/dhcpcd.conf
 # copy interfaces
 sudo cp /home/pi/raspberry/conf/interfaces /etc/network/interfaces
 
+# copy hostapd.conf
+sudo cp /home/pi/raspberry/conf/hostapd.conf /etc/hostapd/
+
 #restart
 sudo restart
