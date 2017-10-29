@@ -49,6 +49,10 @@ sudo cp ~/raspberry/conf/rc.local /etc/rc.local
 # install midnight commander
 sudo apt-get install mc -y
 
+# create mount point
+sudo mkdir /media/HDD
+sudo chmod 777 /media/HDD
+
 #restart
 sudo restart
 
