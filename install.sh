@@ -93,7 +93,17 @@ sudo update-rc.d sabnzbdplus defaults
 # copy sources.list
 sudo cp ~/raspberry/conf/sources.list /etc/apt/sources.list
 
+# update sources
 sudo apt-get update -y
+
+# get unrar
+sudo apt-get build-dep unrar-nonfree -y
+
+# install unrar
+sudo apt-get source -b unrar-nonfree
+
+# install unrar part 2
+sudo dpkg -i unrar_4.1.4-1+deb7u2_armhf.deb
 
 #restart
 #sudo restart
