@@ -90,6 +90,11 @@ sudo cp ~/raspberry/conf/sabnzbdplus /etc/default/sabnzbdplus
 # start sabnzbdplus on system start
 sudo update-rc.d sabnzbdplus defaults
 
+# copy sources.list
+sudo cp ~/raspberry/conf/sources.list /etc/apt/sources.list
+
+sudo apt-get update -y
+
 #restart
 #sudo restart
 
