@@ -46,5 +46,9 @@ sudo cp ~/raspberry/conf/iptables.ipv4.nat /etc/iptables.ipv4.nat
 #copy rc.local file
 sudo cp ~/raspberry/conf/rc.local /etc/rc.local
 
+# install midnight commander
+sudo apt-get install mc -y
+
 #restart
 sudo restart
+
