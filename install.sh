@@ -81,6 +81,9 @@ unzip htop_2.0.2-2_armhf.deb.zip
 # install HTOP
 sudo dpkg -i htop_2.0.2-2_armhf.deb
 
+# install sabnzbplus
+sudo apt-get install sabnzbdplus -y
+
 #restart
 #sudo restart
 
