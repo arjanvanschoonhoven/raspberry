@@ -40,5 +40,11 @@ sudo cp ~/raspberry/conf/dnsmasq.conf /etc/dnsmasq.conf
 #copy sysctl.conf to enable ipv4 port forwarding
 sudo cp ~/raspberry/conf/sysctl.conf /etc/sysctl.conf
 
+#copy iptables.ipv4
+sudo cp ~/raspberry/conf/iptables.ipv4.nat /etc/iptables.ipv4.nat
+
+#copy rc.local file
+sudo cp ~/raspberry/conf/rc.local /etc/rc.local
+
 #restart
 sudo restart
