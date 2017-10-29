@@ -19,4 +19,6 @@ sudo apt-get -y install git-core
 # Clone repo
 git clone https://github.com/arjanvanschoonhoven/raspberry.git
 
+chmod 777 ~/raspberry/install2.sh
+
 ###### END PART 1 #######
