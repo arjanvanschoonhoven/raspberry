@@ -60,6 +60,9 @@ sudo cp ~/raspberry/conf/fstab /etc/fstab
 # install minidlna
 sudo apt-get install minidlna -y
 
+# copy minidlna.conf file
+sudo cp ~/raspberry/conf/minidlna.conf /etc/minidlna.conf
+
 #restart
 sudo restart
 
