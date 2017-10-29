@@ -52,6 +52,7 @@ sudo apt-get install mc -y
 # create mount point
 sudo mkdir /media/HDD
 sudo chmod 777 /media/HDD
+sudo chown -R pi:pi /media/HDD
 
 #restart
 sudo restart
