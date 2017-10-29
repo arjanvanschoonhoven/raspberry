@@ -17,8 +17,8 @@ USER=pi
 CONFIG=
 
 # [optional] hostname/ip and port number to listen on:
-HOST=
-PORT=
+HOST=0.0.0.0
+PORT=8080
 
 # [optional] extra command line options, if any:
 EXTRAOPTS=
