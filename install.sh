@@ -66,6 +66,8 @@ sudo cp ~/raspberry/conf/minidlna.conf /etc/minidlna.conf
 # install samba
 sudo apt-get install samba samba-common-bin -y
 
+sudo cp ~/raspberry/conf/smb.conf /etc/samba/smb.conf
+
 #restart
 #sudo restart
 
