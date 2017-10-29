@@ -37,5 +37,8 @@ sudo cp ~/raspberry/conf/hostapd.default /etc/default/hostapd
 # copy default dnsmasq.conf
 sudo cp ~/raspberry/conf/dnsmasq.conf /etc/dnsmasq.conf
 
+#copy sysctl.conf to enable ipv4 port forwarding
+sudo cp ~/raspberry/conf/sysctl.conf /etc/sysctl.conf
+
 #restart
 sudo restart
