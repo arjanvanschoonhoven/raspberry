@@ -84,6 +84,12 @@ sudo dpkg -i htop_2.0.2-2_armhf.deb
 # install sabnzbplus
 sudo apt-get install sabnzbdplus -y
 
+# copy sabnzbdplus config file
+sudo cp ~/raspberry/conf/sabnzbdplus /etc/default/sabnzbdplus
+
+# start sabnzbdplus on system start
+sudo update-rc.d sabnzbdplus defaults
+
 #restart
 #sudo restart
 
