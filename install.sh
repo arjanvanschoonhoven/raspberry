@@ -34,5 +34,8 @@ sudo cp /home/pi/raspberry/conf/hostapd.conf /etc/hostapd/
 # copy default hostapd file
 sudo cp ~/raspberry/conf/hostapd.default /etc/default/hostapd
 
+# copy default dnsmasq.conf
+sudo cp ~/raspberry/conf/dnsmasq.conf /etc/dnsmasq.conf
+
 #restart
 sudo restart
