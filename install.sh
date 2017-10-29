@@ -72,6 +72,15 @@ sudo cp ~/raspberry/conf/smb.conf /etc/samba/smb.conf
 # add user pi for samba
 (echo raspberry; echo raspberry) | sudo smbpasswd -s -a pi
 
+# get HTOP
+wget https://github.com/wbenny/htop/files/573914/htop_2.0.2-2_armhf.deb.zip
+
+# unzip HTOP
+unzip htop_2.0.2-2_armhf.deb.zip
+
+# install HTOP
+sudo dpkg -i htop_2.0.2-2_armhf.deb
+
 #restart
 #sudo restart
 
