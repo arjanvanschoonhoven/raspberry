@@ -31,5 +31,8 @@ sudo cp /home/pi/raspberry/conf/interfaces /etc/network/interfaces
 # copy hostapd.conf
 sudo cp /home/pi/raspberry/conf/hostapd.conf /etc/hostapd/
 
+# copy default hostapd file
+sudo cp ~/raspberry/conf/hostapd.default /etc/default/hostapd
+
 #restart
 sudo restart
