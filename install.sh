@@ -66,7 +66,11 @@ sudo cp ~/raspberry/conf/minidlna.conf /etc/minidlna.conf
 # install samba
 sudo apt-get install samba samba-common-bin -y
 
+# copy samba config file
 sudo cp ~/raspberry/conf/smb.conf /etc/samba/smb.conf
+
+# add user pi for samba
+(echo raspberry; echo raspberry) | sudo smbpasswd -s -a pi
 
 #restart
 #sudo restart
