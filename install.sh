@@ -57,6 +57,9 @@ sudo chown -R pi:pi /media/HDD
 #copy fstab file
 sudo cp ~/raspberry/conf/fstab /etc/fstab
 
+# install minidlna
+sudo apt-get install minidlna -y
+
 #restart
 sudo restart
 
