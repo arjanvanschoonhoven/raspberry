@@ -30,12 +30,12 @@ sudo cp ~/raspberry/conf/rc.local /etc/rc.local
 sudo apt-get install mc -y
 
 # create mount point
-# sudo mkdir /media/HDD
-# sudo chmod 777 /media/HDD
-# sudo chown -R pi:pi /media/HDD
+sudo mkdir /media/HDD
+sudo chmod 777 /media/HDD
+sudo chown -R pi:pi /media/HDD
 
-# copy fstab file
-# sudo cp ~/raspberry/conf/fstab /etc/fstab
+# change fstab file, add usb drive mount point
+sudo bash -c 'echo "/dev/sda1 /media/HDD vfat auto,nofail,noatime,users,rw,uid=pi,gid=pi 0 0" >> /etc/fstab'
 
 # install minidlna
 sudo apt-get install minidlna -y
