@@ -86,5 +86,5 @@ sudo apt-get source -b unrar-nonfree
 sudo dpkg -i unrar_4.1.4-1+deb7u2_armhf.deb
 
 #restart
-#sudo restart
+#sudo reboot
 
