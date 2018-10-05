@@ -1,0 +1,3 @@
+cd into: /raspberry/Docker/hostapd $ docker build . -t hostapd
+
+docker run --privileged --net=host -d hostapd --restart allways

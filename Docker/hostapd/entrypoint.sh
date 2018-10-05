@@ -14,7 +14,6 @@ ifconfig wlan0 10.0.0.1/24
 
 /etc/init.d/dbus start
 /etc/init.d/dnsmasq start
-/etc/init.d/hostapd start
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE  
