@@ -24,3 +24,10 @@ sudo apt-get -y install python-pip
 sudo pip install docker-compose
 
 git clone https://github.com/arjanvanschoonhoven/raspberry.git
+
+sudo reboot
+
+#after reboot
+cd /home/pi/raspberry/Docker/Compose
+
+docker-compose up
