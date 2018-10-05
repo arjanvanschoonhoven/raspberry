@@ -25,6 +25,8 @@ iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 trap term_handler SIGTERM
 trap term_handler SIGKILL
 
+/etc/init.d/hostapd start
+
 sleep infinity &
 child=$!
 wait "$child"
