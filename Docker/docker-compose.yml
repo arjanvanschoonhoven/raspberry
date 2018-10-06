@@ -13,6 +13,9 @@ services:
   hostapd:
     build: './hostapd'
     restart: always
+    privileged: true
+    network_mode: 'host'
+    
 
 volumes:
   portainer_data:
