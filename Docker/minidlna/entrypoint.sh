@@ -1,1 +1,1 @@
-exec minidlnad -d $@
+/etc/init.d/minidlnad start
