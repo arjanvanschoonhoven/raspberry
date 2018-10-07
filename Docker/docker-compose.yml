@@ -16,6 +16,5 @@ services:
     privileged: true
     network_mode: 'host'
     
-
 volumes:
   portainer_data:
