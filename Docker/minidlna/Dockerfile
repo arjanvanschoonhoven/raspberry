@@ -9,5 +9,6 @@ RUN apt-get update --fix-missing && apt-get install -y \
 ADD minidlna.conf /etc/minidlna.conf
 
 ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
