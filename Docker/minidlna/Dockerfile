@@ -1,15 +1,13 @@
-FROM arch-armv7hf-base
+FROM alpine:latest
+MAINTAINER KAMO Yasuhiro <duck1218+github@gmail.com>
 
-MAINTAINER Arjan van Schoonhoven "arjan.van.schoonhoven@gmail.com"
+# install minidlna
+RUN apk --no-cache add minidlna bash
 
-RUN apt-get update --fix-missing && apt-get install -y \
-    minidlna \
-    bash \
- && apt-get clean && rm -rf /var/lib/apt/lists/*
-
+# Add config file
 ADD minidlna.conf /etc/minidlna.conf
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+EXPOSE 1900/udp
+EXPOSE 8200
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT [ "/usr/sbin/minidlnad", "-S" ]
