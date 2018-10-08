@@ -19,7 +19,7 @@ services:
     build: './minidlna'
     network_mode: 'host'
     volumes:
-      -/media/HDD:/media
+      - /media/HDD:/media
     restart: always
 volumes:
   portainer_data:
