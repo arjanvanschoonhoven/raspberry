@@ -15,6 +15,11 @@ services:
     restart: always
     privileged: true
     network_mode: 'host'
-    
+  minidlna:
+    build: './minidlna'
+    restart: always
+    network_mode: 'host'
+    volumes:
+      -/media/HDD:/media
 volumes:
   portainer_data:
