@@ -17,9 +17,9 @@ services:
     network_mode: 'host'
   minidlna:
     build: './minidlna'
-    restart: always
     network_mode: 'host'
     volumes:
       -/media/HDD:/media
+    restart: always
 volumes:
   portainer_data:
