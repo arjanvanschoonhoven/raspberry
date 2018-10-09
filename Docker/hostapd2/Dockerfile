@@ -11,5 +11,6 @@ ADD dnsmasq.conf /etc/dnsmasq.conf
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+ENTRYPOINT ["/bin/bash"]
 #ENTRYPOINT ["/entrypoint.sh"]
 
