@@ -1,4 +1,4 @@
 #!/bin/sh
 
-smbd
-nmbd
+nmbd -D
+exec ionice -c 3 smbd -FS
