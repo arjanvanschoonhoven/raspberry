@@ -11,7 +11,7 @@ services:
       - portainer_data:/data
     restart: always
   hostapd:
-    build: './hostapd'
+    build: './hostapd2'
     restart: always
     privileged: true
     network_mode: 'host'
