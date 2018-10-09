@@ -7,5 +7,8 @@ ADD smb.conf /etc/samba/smb.conf
 
 EXPOSE 445 137 138 139
 
-ENTRYPOINT ["/run.sh"]
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["-h"]
