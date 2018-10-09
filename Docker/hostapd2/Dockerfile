@@ -11,6 +11,9 @@ ADD dnsmasq.conf /etc/dnsmasq.conf
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["/bin/bash"]
-#ENTRYPOINT ["/entrypoint.sh"]
+RUN /etc/init.d/dbus start
+RUN /etc/init.d/dnsmaq start
+RUN /etc/init.d/hostapd start
+
+ENTRYPOINT ["/entrypoint.sh"]
 
