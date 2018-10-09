@@ -9,5 +9,5 @@ EXPOSE 445 137 138 139
 
 RUN chmod 777 /etc/samba/smb.conf
 
-ENTRYPOINT ["smbd", "--foreground", "--log-stdout", "-s" "/etc/samba/smb.conf"]
+ENTRYPOINT ["smbd", "--foreground", "--log-stdout", "-s", "/etc/samba/smb.conf"]
 CMD []
