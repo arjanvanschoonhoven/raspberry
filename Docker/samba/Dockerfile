@@ -10,6 +10,6 @@ EXPOSE 445 137 138 139
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT [ "sh", "-c", "echo $HOME" ]
-#ENTRYPOINT ["/entrypoint.sh"]
+#ENTRYPOINT [ "sh", "-c", "echo $HOME" ]
+ENTRYPOINT ["/entrypoint.sh"]
 #CMD ["/bin/sh"]
