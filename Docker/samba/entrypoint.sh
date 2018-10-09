@@ -1,2 +1,5 @@
-nmbd -D
-smbd -D
+#!/bin/sh
+
+sleep infinity &
+child=$!
+wait "$child"
