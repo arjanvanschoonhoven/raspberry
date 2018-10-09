@@ -10,5 +10,5 @@ EXPOSE 445 137 138 139
 #ADD entrypoint.sh /entrypoint.sh
 #RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT ["smbd", "--foreground", "--log-stdout"]
+ENTRYPOINT ["smbd", "--foreground", "--log-stdout", "-s /etc/samba/smb.conf"]
 CMD []
