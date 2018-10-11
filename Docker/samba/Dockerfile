@@ -12,5 +12,5 @@ RUN apk add --update \
 
 EXPOSE 445/tcp
 
-ENTRYPOINT ["smbd", "--foreground", "--log-stdout"]
-CMD []
+smdb
+tail -f /dev/null & wait
