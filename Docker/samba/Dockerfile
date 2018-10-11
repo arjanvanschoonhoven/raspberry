@@ -12,5 +12,7 @@ RUN apk add --update \
 
 EXPOSE 445/tcp
 
-smdb
-tail -f /dev/null & wait
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
