@@ -23,6 +23,7 @@ RUN (echo yes;) | ./openvpn-ca/easy-rsa/easyrsa sign-req client client1
 RUN ./openvpn-ca/easy-rsa/easyrsa gen-crl
 RUN mkdir /etc/openvpn/ssl -p
 RUN openssl dhparam -out /etc/openvpn/ssl/dh.pem 2048
+RUN openvpn --genkey --secret /etc/openvpn/ssl/ta.key
 
 EXPOSE 1194/udp
 
