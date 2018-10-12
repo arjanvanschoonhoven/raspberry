@@ -14,7 +14,7 @@ RUN mkdir /openvpn-ca
 RUN cp -Rp /usr/share/easy-rsa /openvpn-ca
 RUN mv /openvpn-ca/easy-rsa/vars.example /openvpn-ca/easy-rsa/vars
 RUN cd /openvpn-ca/easy-rsa
-RUN ./easyrsa init-pki
+RUN ./openvpn-ca/easy-rsa/easyrsa init-pki
 RUN (echo raspberry; echo raspberry) | ./easyrsa build-ca nopass
 RUN (echo raspberry; echo raspberry) | ./easyrsa gen-req raspberry nopass
 RUN (echo yes;) | ./easyrsa sign-req server raspberry
