@@ -33,6 +33,9 @@ sudo chown -R pi:pi /media/HDD
 # change fstab file, add usb drive mount point
 sudo bash -c 'echo "/dev/sda1 /media/HDD vfat auto,nofail,noatime,users,rw,uid=pi,gid=pi 0 0" >> /etc/fstab'
 
+# disable avahi
+sudo systemctl disable avahi-daemon
+
 sudo reboot
 
 #after reboot
