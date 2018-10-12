@@ -21,5 +21,15 @@ services:
     volumes:
       - /media/HDD:/media
     restart: always
+  samba:
+    build: './samba'
+    ports:
+      - "445:445"
+      - "139:139"
+      - "137:137/udp"
+      - "138:138/udp"
+    volumes:
+      - /media/HDD:/media
+    restart: always
 volumes:
   portainer_data:
