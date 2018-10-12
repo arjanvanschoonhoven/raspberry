@@ -28,6 +28,7 @@ services:
       - "139:139"
       - "137:137/udp"
       - "138:138/udp"
+      - "5353:5353/udp"
     volumes:
       - /media/HDD:/media
     restart: always

@@ -8,4 +8,4 @@ docker compose:
 
 docker-compose up -d
 
-docker run -d -p 445:445 -p 139:139 -p 137:137/udp -p 138:138/udp -v /media/HDD:/media samba
+docker run -d -p 445:445 -p 139:139 -p 137:137/udp -p 138:138/udp -p 5353:5353/udp -v /media/HDD:/media samba
