@@ -11,6 +11,9 @@ RUN apk add --update \
     shadow \
     && rm -rf /var/cache/apk/*
 
+RUN adduser -D -g '' pi
+RUN (echo raspberry; echo raspberry) | smbpasswd -s -a pi
+
 EXPOSE 445/tcp 139/tcp 137/udp 138/udp
 
 ADD entrypoint.sh /entrypoint.sh
