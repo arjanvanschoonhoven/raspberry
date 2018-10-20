@@ -51,6 +51,15 @@ sudo bash -c 'echo "/dev/sda1 /media/HDD vfat auto,nofail,noatime,users,rw,uid=p
 # disable avahi
 sudo systemctl disable avahi-daemon
 
+#copy sysctl.conf to enable ipv4 port forwarding
+sudo cp ~/raspberry/conf/sysctl.conf /etc/sysctl.conf
+
+# copy interfaces
+sudo cp /home/pi/raspberry/conf/interfaces /etc/network/interfaces
+
+#copy iptables.ipv4
+sudo cp ~/raspberry/conf/iptables.ipv4.nat /etc/iptables.ipv4.nat
+
 sudo reboot
 
 #after reboot
