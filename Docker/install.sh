@@ -13,14 +13,29 @@ sudo apt-get update && sudo apt-get -y upgrade
 echo "Change timezone" 
 sudo cp /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
 
+sudo apt-get install \
+     apt-transport-https \
+     ca-certificates \
+     curl \
+     gnupg2 \
+     software-properties-common -y
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+
+echo "deb [arch=armhf] https://download.docker.com/linux/debian \
+     $(lsb_release -cs) stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list
+
+sudo apt-get update
+
+sudo apt-get install docker-ce -y
+
 # Install git and clone our repository
 sudo apt-get -y install git-core
 
-#Install Docker
-sudo curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 sudo usermod -a -G docker $USER
 
-sudo apt-get -y install python-pip
+sudo apt-get install python-pip -y
 sudo pip install docker-compose
 
 git clone https://github.com/arjanvanschoonhoven/raspberry.git
@@ -39,6 +54,6 @@ sudo systemctl disable avahi-daemon
 sudo reboot
 
 #after reboot
-cd /home/pi/raspberry/Docker/Compose
+cd /home/pi/raspberry/Docker
 
-docker-compose up
+docker-compose up -d
