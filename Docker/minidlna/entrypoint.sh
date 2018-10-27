@@ -1,1 +1,1 @@
-/etc/init.d/minidlnad start
+#/etc/init.d/minidlnad start
