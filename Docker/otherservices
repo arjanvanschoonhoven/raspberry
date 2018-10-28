@@ -1,0 +1,18 @@
+docker create --name=sabnzbd \
+-v /home/pi/datadir:/config \
+-v /media/HDD:/downloads \
+-v /media/HDD:/incomplete-downloads \
+-p 8080:8080 -p 9090:9090 \
+lsioarmhf/sabnzbd
+
+docker create \
+--name=freshrss \
+-v /home/pi/freshrss:/config \
+-p 80:80 \
+lsioarmhf/freshrss
+
+docker create \
+--name=mariadb \
+-p 3306:3306 \
+-e MYSQL_ROOT_PASSWORD=<password> \
+lsioarmhf/mariadb
