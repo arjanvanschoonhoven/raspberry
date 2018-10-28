@@ -1,1 +1,1 @@
-#/etc/init.d/minidlnad start
+tail -f /dev/null & wait
