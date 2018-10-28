@@ -16,3 +16,9 @@ docker create \
 -p 3306:3306 \
 -e MYSQL_ROOT_PASSWORD=<password> \
 lsioarmhf/mariadb
+
+docker create \
+  --name deluge \
+  --net=host \
+  -v /media/HDD:/downloads \
+  lsioarmhf/deluge
