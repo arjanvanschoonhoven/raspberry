@@ -10,15 +10,15 @@ services:
       - "3306:3306"
      environment:
        MYSQL_ROOT_PASSWORD: mariadb
-    wordpress:
-      image: arm32v7/wordpress
-      restart: always
-      ports:
-        - "8000:80"
-      environment:
-        WORDPRESS_DB_PASSWORD: mariadb
-        WORDPRESS_DB_NAME: wordpress1
-      links: 
-            - "db:mysql"
+    # wordpress:
+    #   image: arm32v7/wordpress
+    #   restart: always
+    #   ports:
+    #     - "8000:80"
+    #   environment:
+    #     WORDPRESS_DB_PASSWORD: mariadb
+    #     WORDPRESS_DB_NAME: wordpress1
+    #   links: 
+    #         - "db:mysql"
 volumes:
     db_data:
