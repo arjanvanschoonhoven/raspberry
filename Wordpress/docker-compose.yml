@@ -14,12 +14,16 @@ services:
   wordpress:
     image: arm32v7/wordpress
     restart: always
-    ports:
-      - "8000:80"
     environment:
       WORDPRESS_DB_PASSWORD: mariadb
       WORDPRESS_DB_NAME: wordpress1
     links: 
           - "db:mysql"
+
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - "80:80"
 volumes:
     db_data:
