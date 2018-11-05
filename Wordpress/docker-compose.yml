@@ -21,6 +21,8 @@ services:
           - "db:mysql"
 
   nginx:
+    depends_on:
+       - wordpress
     build: ./nginx
     restart: always
     ports:
