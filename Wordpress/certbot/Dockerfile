@@ -1,27 +1,35 @@
-FROM python:2-alpine3.7
+FROM alpine:3.6
+LABEL maintainer="Arjan van Schoonhoven"
+LABEL Name="Dockerized Certbot"
+LABEL Version="1.2"
 
-ENTRYPOINT [ "certbot" ]
-EXPOSE 80 443
-VOLUME /etc/letsencrypt /var/lib/letsencrypt
 WORKDIR /opt/certbot
+ENV PATH /opt/certbot/venv/bin:$PATH
 
-COPY CHANGELOG.md README.rst setup.py src/
-COPY acme src/acme
-COPY certbot src/certbot
+RUN export BUILD_DEPS="git \
+                build-base \
+                libffi-dev \
+                linux-headers \
+                py-pip \
+                python-dev" \
+    && apk -U upgrade \
+    && apk add dialog \
+                python \
+                openssl-dev \
+		augeas-libs \
+                ${BUILD_DEPS} \
+    && pip --no-cache-dir install virtualenv \
+    && git clone https://github.com/letsencrypt/letsencrypt /opt/certbot/src \
+    && virtualenv --no-site-packages -p python2 /opt/certbot/venv \
+    && /opt/certbot/venv/bin/pip install \
+        -e /opt/certbot/src/acme \
+        -e /opt/certbot/src \
+        -e /opt/certbot/src/certbot-apache \
+        -e /opt/certbot/src/certbot-nginx \ 
+    && apk del ${BUILD_DEPS} \
+    && rm -rf /var/cache/apk/*
 
-RUN apk add --no-cache --virtual .certbot-deps \
-        libffi \
-        libssl1.0 \
-        openssl \
-        ca-certificates \
-        binutils
-RUN apk add --no-cache --virtual .build-deps \
-        gcc \
-        linux-headers \
-        openssl-dev \
-        musl-dev \
-        libffi-dev \
-    && pip install --no-cache-dir \
-        --editable /opt/certbot/src/acme \
-        --editable /opt/certbot/src \
-    && apk del .build-deps
+EXPOSE 80 443
+VOLUME /etc/letsencrypt 
+
+ENTRYPOINT ["certbot"]
