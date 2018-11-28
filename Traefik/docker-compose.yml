@@ -1,0 +1,104 @@
+version: '3'
+
+services:
+  # The reverse proxy service (Traefik)
+  reverse-proxy:
+    image: traefik  # The official Traefik docker image
+    command: --api --docker --configFile=/traefik.toml --acme=false
+    ports:
+      - "80:80"      # The HTTP port
+      - "8080:8080"  # The Web UI (enabled by --api)
+      - "443:443"
+    networks:
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
+      - /home/pi/traefik/traefik.toml:/traefik.toml
+      - /home/pi/traefik/acme.json:/acme.json
+    labels:
+      - traefik.enabled = false
+    container_name: traefik
+
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    restart: always
+    networks:
+      - web
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.backend=portainer"
+      - "traefik.frontend.rule=Host:portainer.solar-avs.nl"
+      - "traefik.port=9000"
+    container_name: portainer
+      
+  db:
+    image: lsioarmhf/mariadb
+    volumes:
+      - db_data:/config
+    restart: always
+    networks:
+      - web
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mariadb
+    labels:
+      - "traefik.enable=false"
+    container_name: db
+    
+  wordpress:
+    image: arm32v7/wordpress
+    restart: always
+    environment:
+      WORDPRESS_DB_PASSWORD: mariadb
+      WORDPRESS_DB_NAME: wordpress1
+    links: 
+      - "db:mysql"
+    networks:
+      - web
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:www.solar-avs.nl"
+      - "traefik.port=80"
+    container_name: wordpress
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud-app
+    networks:
+      - web
+    depends_on:
+      - reverse-proxy
+      - db
+    volumes:
+      - nextcloud:/var/www/html
+      - ./app/config:/var/www/html/config
+      - ./app/custom_apps:/var/www/html/custom_apps
+      - /media/HDD/data:/var/www/html/data
+      - ./app/themes:/var/www/html/themes
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - VIRTUAL_HOST=nextcloud.solar-avs.nl
+      - LETSENCRYPT_HOST=nextcloud.solar-avs.nl
+      - LETSENCRYPT_EMAIL=arjan.van.schoonhoven@gmail.com
+    restart: unless-stopped
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:nextcloud.solar-avs.nl"
+      - "traefik.port=80"
+
+volumes:
+    db_data:
+    portainer_data:
+    nextcloud:
+
+networks:
+  web:
+    external: true
