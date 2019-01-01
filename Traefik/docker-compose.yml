@@ -13,8 +13,8 @@ services:
       - web
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
-      - /home/pi/traefik/traefik.toml:/traefik.toml
-      - /home/pi/traefik/acme.json:/acme.json
+      - /home/pi/raspberry/Traefik:/traefik.toml
+      - /home/pi/raspberry/Traefik/acme.json:/acme.json
     labels:
       - traefik.enabled = false
     container_name: traefik
