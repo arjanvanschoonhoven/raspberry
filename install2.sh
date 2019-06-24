@@ -88,3 +88,12 @@ sudo dpkg -i unrar_4.1.4-1+deb7u2_armhf.deb
 #restart
 #sudo reboot
 
+#create a file minidlnarescan.sh
+#with the following content:
+#
+#sudo minidlnad -R
+#sudo service minidlna restart
+#date > /home/pi/lastreboot.txt 2>&1
+#
+#sudo crontab -e
+#Add: @reboot /home/pi/minidlnarescan.sh
